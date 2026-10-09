@@ -1,24 +1,31 @@
-# README
+# Incident Desk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Support tickets and incidents for customers and agents. See `docs/README.md` for the docs index.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
+```sh
+bin/setup     # installs gems and JS packages, prepares the database, seeds demo accounts
+bin/dev       # web, JS and CSS watchers
+```
 
-* System dependencies
+## Accounts
 
-* Configuration
+`bin/rails db:seed` creates two demo accounts, `customer@example.com` and `agent@example.com`.
+Their passwords come from `SEED_CUSTOMER_PASSWORD` and `SEED_AGENT_PASSWORD`. In development and test
+they default to the dev-only value `password`; in production seeding stops unless both are set.
 
-* Database creation
+Create other users from the command line, passing the password through the environment:
 
-* Database initialization
+```sh
+bin/rails users:create EMAIL=agent2@example.com PASSWORD="$NEW_USER_PASSWORD" ROLE=agent
+```
 
-* How to run the test suite
+`ROLE` is `customer` or `agent`.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Tests
 
-* Deployment instructions
-
-* ...
+```sh
+bin/rails test
+bin/ci          # style, security audits, tests and seeds
+```
