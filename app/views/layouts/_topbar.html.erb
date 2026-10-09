@@ -2,7 +2,7 @@
   <div class="topbar-inner">
     <%= link_to "Incident Desk", root_path, class: "brand" %>
     <div class="user">
-      <span><%= Current.user.email_address %> · <%= role_label(Current.user) %></span>
+      <span><%= Current.user.email_address %> · <%= Current.user.role_name.humanize %></span>
       <%= button_to "Log out", session_path, method: :delete, class: "btn btn-plain btn-sm" %>
     </div>
   </div>

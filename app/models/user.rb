@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
   validates :email_address, presence: true, uniqueness: true
   validates :roles, presence: true
+
+  def role_name
+    Role::NAMES.find { |name| has_role?(name) }
+  end
 end

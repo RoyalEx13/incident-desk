@@ -42,4 +42,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not users(:agent).has_role?(:customer)
     assert users(:customer).has_role?(:customer)
   end
+
+  test "names its role" do
+    assert_equal "agent", users(:agent).role_name
+    assert_equal "customer", users(:customer).role_name
+  end
 end
