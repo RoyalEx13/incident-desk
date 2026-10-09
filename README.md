@@ -1,24 +1,25 @@
-# README
+# Incident Desk
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+```sh
+bin/setup          # installs gems, prepares the database and starts the dev server
+bin/rails db:seed  # demo accounts: customer@example.com and agent@example.com
+```
 
-* Ruby version
+Seeded passwords come from `SEED_CUSTOMER_PASSWORD` and `SEED_AGENT_PASSWORD`. Outside
+production they default to the dev-only value `password`.
 
-* System dependencies
+## Creating users
 
-* Configuration
+```sh
+PASSWORD=... bin/rails users:create EMAIL=agent@example.com ROLE=agent
+```
 
-* Database creation
+`ROLE` must be `customer` or `agent`. Roles are managed with [rolify](https://github.com/RolifyCommunity/rolify).
 
-* Database initialization
+## Tests
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```sh
+bin/rails test
+```

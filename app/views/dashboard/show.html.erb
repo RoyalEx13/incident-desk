@@ -1,0 +1,9 @@
+<% content_for :title, "Dashboard · Incident Desk" %>
+
+<main class="page page-narrow">
+  <div class="card card-pad dashboard">
+    <h1>Welcome, <%= @user.email_address %></h1>
+    <p>You are signed in as <span class="role role-<%= @user.role_name %>"><%= @user.role_name&.humanize || "No role" %></span>.</p>
+    <p class="hint">Your tickets will appear here.</p>
+  </div>
+</main>

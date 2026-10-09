@@ -18,12 +18,26 @@
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
 
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
-    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
 
   <body>
+    <% if authenticated? %>
+      <header class="topbar">
+        <div class="topbar-inner">
+          <%= link_to "Incident Desk", root_path, class: "brand" %>
+          <div class="user">
+            <span><%= Current.user.email_address %> · <%= Current.user.role_name&.humanize %></span>
+            <%= button_to "Log out", session_path, method: :delete, class: "btn btn-plain btn-sm" %>
+          </div>
+        </div>
+      </header>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
