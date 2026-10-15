@@ -54,5 +54,5 @@ Defined in `.agents/skills/` and symlinked into `.claude/skills/`. Pinned in `sk
 | --- | --- | --- |
 | `implement` | `.agents/skills/implement/SKILL.md` | Building a story or ticket. Uses `tdd`, then `code-review`, then commits. Invoke manually only. |
 | `tdd` | `.agents/skills/tdd/SKILL.md` (+ `tests.md`, `mocking.md`) | Writing features or fixes test-first |
-| `code-review` | `.agents/skills/code-review/SKILL.md` | Reviewing changes since a commit or branch, against standards and spec |
-| `codebase-design` | `.agents/skills/codebase-design/SKILL.md` (+ `DEEPENING.md`, `DESIGN-IT-TWICE.md`) | Designing module interfaces and seams |
+| `code-review` | `.agents/skills/code-review/SKILL.md` | Reviewing changes since a commit or branch, against standards and spec
+| `codebase-design` | `.agents/skills/codebase-design/SKILL.md` (+ `DEEPENING.md`, `DESIGN-IT-TWICE.md`) | Designing module interfaces and seams
